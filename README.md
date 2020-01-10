@@ -29,6 +29,8 @@ See? Nothing big and you have your first custom NPC to play with! Now let's brea
 
 ```
 (defun start
+[...]
+)
 ```
 This defines the start of a function, called `start`. This is a mandatory function in any NPC script. Technically speaking, when you interact with a NPC is SWC, the game blindly calls the `start` function assigned to it, so if you don't define it in your script it will cause an error.
 
