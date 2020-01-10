@@ -1,0 +1,32 @@
+(defun start
+  (describe (concat "The " (get-race self) " greets you."))
+  (say (concat "Hey! My name is " (get-name self) ", I am the last Bubble checkpoint. Keep going!"))
+  (add-response "That was not easy going here. What's next?." check_time)
+  (add-response "What are you doing here alone?" race_explanations)
+  (add-response "I think I'm lost..." race_cheer)
+)
+
+(defun race_explanations
+  (say "I'm waiting for racers. If you head to the city of Milos you'll find the start of the race and someone will give you all the details.")
+  (add-response "Oh I see, thanks for the explanations and good luck out there!" leave)
+)
+
+(defun check_time
+  (send-message self (get-owner self) (concat "Master, " (get-name character) " reached the last checkpoint."))
+  (send-message self (get-character (get-name character)) (concat "<p>Hi there, here's a recall of the last coordinates:</p><p>Surface: (4, 0)</p><p>Ground: (1, 16)</p>"))
+  (say "The sprint! Get back to the start of the race to complete the loop. Here are the detailed coordinates:")
+  (say "Surface: (4, 0)" #t)
+  (say "Ground: (1, 16)")
+  (say "I also sent them to your personal terminal. Good luck!")
+  (describe "You get back to your Bubble.")
+  (ooc "The race organizer has been notified of your passage.")
+)
+
+(defun leave
+  (describe (concat "You leave the " (get-race self) " alone."))
+)
+
+
+(defun race_cheer
+  (say "Come on! Remember all the necessary info has been sent to your personal device.")
+)
