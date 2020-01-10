@@ -1,13 +1,13 @@
 ## What is this about?
-This page is intended to show the basics of user scripts in the SWCombine online game (https://www.swcombine.com).
+This page is intended to show the basics of user scripts in the [_SWCombine_](https://www.swcombine.com) online game .
 
 ## Reference
-The official rules for NPC scripting are located here: https://www.swcombine.com/rules/?Scripts.
+The official rules for NPC scripting are located [here](https://www.swcombine.com/rules/?Scripts).
 
 ## Where can I use this?
-To use a script, you first have to own a *Custom Type NPC*. Regular NPCs and droids can't have user scripts attached to it for now.
+To use a script, you first have to own a *_Custom Type NPC_*. Regular NPCs and droids can't have user scripts attached to it for now.
 
-To get a custom NPC, follow the rules here: https://www.swcombine.com/rules/?NPCs#Custom_NPCs.
+To get a custom NPC, follow the rules [here](https://www.swcombine.com/rules/?NPCs#Custom_NPCs).
 Once you have a custom NPC, you will be able to edit its script via the game's inventory.
 
 ## Simple NPC tutorial
