@@ -1,0 +1,50 @@
+(defun start
+  (describe (concat "The " (get-race self) " looks at you with a great smile."))
+  (say (concat "Hello there! My name is " (get-name self) ", I work for Chancellor To. You're here for the race?"))
+  (add-response "Race? What race?" race_explanations)
+  (add-response "Absolutely, let's start this thing!" start_of_race_dialog)
+  (add-response "Yeah, actually I'm done with it." end_of_race_dialog)
+  (add-response "Yes, but I think I'm lost..." race_cheer)
+)
+
+(defun start_of_race_dialog
+  (say "Great, so I'm supposed to give you indications to the next checkpoint.")
+  (add-response "Checkpoint? What are you talking about?" race_explanations)
+  (add-response "OK, I'm ready!" race_start)
+  (add-response "Let me think about it, I'm not sure I'm ready yet." leave)
+)
+
+(defun end_of_race_dialog
+  (say "You went through all the checkpoints I hope? I'm sure of it and I guess you want to validate your time as soon as possible.")
+  (add-response "Yes, race is over!" race_over)
+)
+
+(defun race_explanations
+  (say "Ah, yeah sorry I didn't take time to explain everything... Starting from here, you're going to enter a race, consisting of 3 more checkpoints. At each checkpoint, you'll meet an assistant who will guide you to the next step. You'll end up here and I'll validate your time. Oh and you'll use these giant bubble cars you see from here. Is it OK? Are you ready?")
+  (add-response "Let me think about it, I'm not sure I'm ready yet." leave)
+  (add-response "OK, I'm ready!" race_start)
+)
+
+(defun race_start
+  (send-message self (get-owner self) (concat "Master, " (get-name character) " started the Bubble Challenge."))
+  (send-message self (get-character (get-name character)) (concat "<p>Hi there, here's a recall of the first checkpoint coordinates:</p><p>Surface: (4, 3)</p><p>Ground: (13, 17)</p>"))
+  (say "Awesome! You'll meet the first assistant in the city of Kos, under the giant shield generator's antenna. Here are the detailed coordinates:")
+  (say "Surface: (4, 3)" #t)
+  (say "Ground: (13, 17)")
+  (say "I also sent them to your personal terminal. Now hurry up, the clock is ticking already!")
+  (describe "You dash towards the Bubbles.")
+  (ooc "The race organizer has been notified of the start of your race, head to a Bubble and head for the next coordinates. Good luck!")
+)
+
+(defun leave
+  (describe "You leave and think about it.")
+)
+
+(defun race_over
+  (send-message self (get-owner self) (concat "Master, " (get-name character) " finished the Bubble Challenge."))
+  (say (concat "Excellent! This was an easy ride, wasn't it? Feel free to send your comments to my master, " (get-name (get-owner self)) ", they will be well recieved. See you next year I hope!"))
+)
+
+(defun race_cheer
+  (say "Cheer up! Remember you should have got every coordinates in your inbox. At the very least, contact the organizers. I never lost a candidate, and you won't be the first!")
+)
